@@ -4,6 +4,8 @@ from pygame_functions import *
 import random
 import time
 
+from real_menu import *
+
 def gameloop():
     life = 3
     fin = 0
@@ -602,6 +604,7 @@ def gameloop():
 def menu():
     screen = screenSize(1920, 1080)
     while True:
+        real_menu();
         setBackgroundImage(["pictures/fond.png"])
         gameloop();
         for ev in pygame.event.get():

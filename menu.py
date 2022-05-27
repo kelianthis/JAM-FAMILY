@@ -300,7 +300,7 @@ def gameloop():
             moveSprite(steve, pos_x_steve, pos_y_steve)
             scoritos += 1
         if (pos_y_victor > 700 and pos_y_victor < 900 and ((pos_x - pos_x_victor < 150 and pos_x - pos_x_victor > -150) or (pos_x2 - pos_x_victor < 150 and pos_x2 - pos_x_victor > -150))):
-            count_famille_pirate += 1
+            count_bigorneau += 1
             pos_x_victor = random.randint(1, 1900)
             pos_y_victor = 0 - random.randint(50, 2000)
             moveSprite(victor, pos_x_victor, pos_y_victor)

@@ -5,6 +5,13 @@ import random
 def gameloop():
     life = 3
     speed_mult = 1
+    #########life##############
+    sprite_life1 = makeSprite("pictures/life.png")
+    sprite_life2 = makeSprite("pictures/life.png")
+    sprite_life3 = makeSprite("pictures/life.png")
+    moveSprite(sprite_life2, 75, 0)
+    moveSprite(sprite_life3, 150, 0)
+    #########life##############
     #########bucket############
     bucket = makeSprite("pictures/empty-bucket.png")
     transformSprite(bucket, 0.5, 0.5)
@@ -144,7 +151,22 @@ def gameloop():
         moveSprite(roger, pos_x_roger, pos_y_roger)
         moveSprite(steve, pos_x_steve, pos_y_steve)
         moveSprite(victor, pos_x_victor, pos_y_victor)
-
+        if life == 3:
+            showSprite(sprite_life1)
+            showSprite(sprite_life2)
+            showSprite(sprite_life3)
+        if life == 2:
+            showSprite(sprite_life1)
+            showSprite(sprite_life2)
+            hideSprite(sprite_life3)
+        if life == 1:
+            showSprite(sprite_life1)
+            hideSprite(sprite_life2)
+            hideSprite(sprite_life3)
+        if life == 0:
+            hideSprite(sprite_life1)
+            hideSprite(sprite_life2)
+            hideSprite(sprite_life3)
         pos_y_victor += 1 * speed_mult
         speed_mult += 0.002
         if (is_moving_left == True):

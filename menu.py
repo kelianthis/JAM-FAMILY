@@ -5,6 +5,7 @@ import random
 def gameloop():
     life = 3
     speed_mult = 1
+    scoritos = 0
     #########life##############
     sprite_life1 = makeSprite("pictures/life.png")
     sprite_life2 = makeSprite("pictures/life.png")
@@ -206,7 +207,9 @@ def gameloop():
     showSprite(stewie_griffin)
     count_chris_griffin = 0
     ########family guys########
+    score = makeLabel(str(scoritos), 40, 1850, 0, (0, 0, 0), "Agency FB", "white")
     while True:
+        showLabel(score)
         pos_y_american_dad += 1 * speed_mult
         pos_y_francine += 1 * speed_mult
         pos_y_hayley += 1 * speed_mult
@@ -271,31 +274,37 @@ def gameloop():
             pos_x_american_dad = random.randint(1, 1900)
             pos_y_american_dad = 0 - random.randint(50, 2000)
             moveSprite(american_dad, pos_x_american_dad, pos_y_american_dad)
+            scoritos += 1
         if (((pos_x - pos_x_francine < 150 and pos_x - pos_x_francine > -150) or (pos_x2 - pos_x_francine < 150 and pos_x2 - pos_x_francine > -150)) and pos_y_francine > 700 and pos_y_francine < 900):
             count_american_dad += 1
             pos_x_francine = random.randint(1, 1900)
             pos_y_francine = 0 - random.randint(50, 2000)
             moveSprite(francine, pos_x_francine, pos_y_francine)
+            scoritos += 1
         if ((((pos_x - pos_x_hayley < 150 and pos_x - pos_x_hayley > -150) or (pos_x2 - pos_x_hayley < 150 and pos_x2 - pos_x_hayley > -150)) and pos_y_hayley > 700 and pos_y_hayley < 900)):
             count_american_dad += 1
             pos_x_hayley = random.randint(1, 1900)
             pos_y_hayley = 0 - random.randint(50, 2000)
             moveSprite(hayley, pos_x_hayley, pos_y_hayley)
+            scoritos += 1
         if ((((pos_x - pos_x_roger < 150 and pos_x - pos_x_roger > -150) or (pos_x2 - pos_x_roger < 150 and pos_x2 - pos_x_roger > -150)) and pos_y_roger > 700 and pos_y_roger < 900)):
             count_american_dad += 1
             pos_x_roger = random.randint(1, 1900)
             pos_y_roger = 0 - random.randint(50, 2000)
             moveSprite(roger, pos_x_roger, pos_y_roger)
+            scoritos += 1
         if (((pos_x - pos_x_steve < 150 and pos_x - pos_x_steve > -150) or (pos_x2 - pos_x_steve < 150 and pos_x2 - pos_x_steve > -150)) and pos_y_steve > 700 and pos_y_steve < 900):
             count_american_dad += 1
             pos_x_steve = random.randint(1, 1900)
             pos_y_steve = 0 - random.randint(50, 2000)
             moveSprite(steve, pos_x_steve, pos_y_steve)
+            scoritos += 1
         if (pos_y_victor > 700 and pos_y_victor < 900 and ((pos_x - pos_x_victor < 150 and pos_x - pos_x_victor > -150) or (pos_x2 - pos_x_victor < 150 and pos_x2 - pos_x_victor > -150))):
             count_famille_pirate += 1
             pos_x_victor = random.randint(1, 1900)
             pos_y_victor = 0 - random.randint(50, 2000)
             moveSprite(victor, pos_x_victor, pos_y_victor)
+            scoritos += 1
         #############ON CATCH#############
         #############ON LIFE LOST#############
         if (pos_y_american_dad > 1000):

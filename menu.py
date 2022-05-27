@@ -207,8 +207,8 @@ def gameloop():
     showSprite(stewie_griffin)
     count_chris_griffin = 0
     ########family guys########
-    score = makeLabel(str(scoritos), 40, 1850, 0, (0, 0, 0), "Agency FB", "white")
     while True:
+        score = makeLabel(str(scoritos), 40, 1850, 0, (0, 0, 0), "Agency FB", "white")
         showLabel(score)
         pos_y_american_dad += 1 * speed_mult
         pos_y_francine += 1 * speed_mult

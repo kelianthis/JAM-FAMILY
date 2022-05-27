@@ -131,7 +131,27 @@ def gameloop():
     count_adam = 0
     ########soda###############
     ########famille pirate#####
-
+    bigorneau = makeSprite("pictures/famille pirate/bigorneau.png")
+    mac = makeSprite("pictures/famille pirate/mac.png")
+    scampi = makeSprite("pictures/famille pirate/scampi.png")
+    victor = makeSprite("pictures/famille pirate/victor.png")
+    pos_x_bigorneau = random.randint(1, 1900)
+    pos_y_bigorneau = 0 - random.randint(100, 2000)
+    pos_x_mac = random.randint(1, 1900)
+    pos_y_mac = 0 - random.randint(100, 2000)
+    pos_x_scampi = random.randint(1, 1900)
+    pos_y_scampi = 0 - random.randint(100, 2000)
+    pos_x_victor = random.randint(1, 1900)
+    pos_y_victor = 0 - random.randint(100, 2000)
+    moveSprite(bigorneau, pos_x_bigorneau, pos_y_bigorneau)
+    showSprite(bigorneau)
+    moveSprite(mac, pos_x_mac, pos_y_mac)
+    showSprite(mac)
+    moveSprite(scampi, pos_x_scampi, pos_y_scampi)
+    showSprite(scampi)
+    moveSprite(victor, pos_x_victor, pos_y_victor)
+    showSprite(victor)
+    count_bigorneau = 0
     ########famille pirate#####
     ########simpsons###########
 

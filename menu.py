@@ -91,7 +91,37 @@ def gameloop():
     count_dewey = 0
     ########malcom#############
     ########soda###############
-
+    adam = makeSprite("pictures/soda/SODA_Adam01.png")
+    babeth = makeSprite("pictures/soda/SODA_Babeth.png")
+    eve = makeSprite("pictures/soda/SODA_Eve.png")
+    gisele = makeSprite("pictures/soda/SODA_Gisele.png")
+    michel = makeSprite("pictures/soda/SODA_Michel.png")
+    slimane = makeSprite("pictures/soda/SODA_Slimane.png")
+    pos_x_adam = random.randint(1, 1900)
+    pos_y_adam = 0 - random.randint(100, 2000)
+    pos_x_babeth = random.randint(1, 1900)
+    pos_y_babeth = 0 - random.randint(100, 2000)
+    pos_x_eve = random.randint(1, 1900)
+    pos_y_eve = 0 - random.randint(100, 2000)
+    pos_x_gisele = random.randint(1, 1900)
+    pos_y_gisele = 0 - random.randint(100, 2000)
+    pos_x_michel = random.randint(1, 1900)
+    pos_y_michel = 0 - random.randint(100, 2000)
+    pos_x_slimane = random.randint(1, 1900)
+    pos_y_slimane = 0 - random.randint(100, 2000)
+    moveSprite(adam, pos_x_adam, pos_y_adam)
+    showSprite(adam)
+    moveSprite(babeth, pos_x_babeth, pos_y_babeth)
+    showSprite(babeth)
+    moveSprite(eve, pos_x_eve, pos_y_eve)
+    showSprite(eve)
+    moveSprite(gisele, pos_x_gisele, pos_y_gisele)
+    showSprite(gisele)
+    moveSprite(michel, pos_x_michel, pos_y_michel)
+    showSprite(michel)
+    moveSprite(slimane, pos_x_slimane, pos_y_slimane)
+    showSprite(slimane)
+    count_adam = 0
     ########soda###############
     ########famille pirate#####
 

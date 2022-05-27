@@ -28,14 +28,6 @@ def gameloop():
     is_moving_left2 = False
     is_moving_right2 = False
     ##########bucket###########
-    ##########famille pirate###
-    victor = makeSprite("pictures/famille pirate/victor.png")
-    pos_x_victor = random.randint(1, 1900)
-    pos_y_victor = 0 - random.randint(100, 2000)
-    moveSprite(victor, pos_x_victor, pos_y_victor)
-    showSprite(victor)
-    count_famille_pirate = 0
-    ########famille pirate#####
     ########american dad#######
     american_dad = makeSprite("pictures/american dad/Stan_smith.png")
     francine = makeSprite("pictures/american dad/francine_smith.png")
@@ -154,10 +146,65 @@ def gameloop():
     count_bigorneau = 0
     ########famille pirate#####
     ########simpsons###########
-
+    bart = makeSprite("pictures/simpsons/bart.png")
+    homer = makeSprite("pictures/simpsons/homer.png")
+    lisa = makeSprite("pictures/simpsons/lisa.png")
+    maggie = makeSprite("pictures/simpsons/maggie.png")
+    marge = makeSprite("pictures/simpsons/Marge.png")
+    pos_x_bart = random.randint(1, 1900)
+    pos_y_bart = 0 - random.randint(100, 2000)
+    pos_x_homer = random.randint(1, 1900)
+    pos_y_homer = 0 - random.randint(100, 2000)
+    pos_x_lisa = random.randint(1, 1900)
+    pos_y_lisa = 0 - random.randint(100, 2000)
+    pos_x_maggie = random.randint(1, 1900)
+    pos_y_maggie = 0 - random.randint(100, 2000)
+    pos_x_marge = random.randint(1, 1900)
+    pos_y_marge = 0 - random.randint(100, 2000)
+    moveSprite(bart, pos_x_bart, pos_y_bart)
+    showSprite(bart)
+    moveSprite(homer, pos_x_homer, pos_y_homer)
+    showSprite(homer)
+    moveSprite(lisa, pos_x_lisa, pos_y_lisa)
+    showSprite(lisa)
+    moveSprite(maggie, pos_x_maggie, pos_y_maggie)
+    showSprite(maggie)
+    moveSprite(marge, pos_x_marge, pos_y_marge)
+    showSprite(marge)
+    count_bart = 0
     ########simpsons###########
     ########family guys########
-
+    chris_griffin = makeSprite("pictures/family guys/chris_griffin.png")
+    Lois_griffin = makeSprite("pictures/family guys/Lois_griffin.png")
+    meg_griffin = makeSprite("pictures/family guys/meg_griffin.png")
+    peter_griffin = makeSprite("pictures/family guys/peter_griffin.png")
+    ryan_griffin = makeSprite("pictures/family guys/ryan_griffin.png")
+    stewie_griffin = makeSprite("pictures/family guys/stewie_griffin.png")
+    pos_x_chris_griffin = random.randint(1, 1900)
+    pos_y_chris_griffin = 0 - random.randint(100, 2000)
+    pos_x_Lois_griffin = random.randint(1, 1900)
+    pos_y_Lois_griffin = 0 - random.randint(100, 2000)
+    pos_x_meg_griffin = random.randint(1, 1900)
+    pos_y_meg_griffin = 0 - random.randint(100, 2000)
+    pos_x_peter_griffin = random.randint(1, 1900)
+    pos_y_peter_griffin = 0 - random.randint(100, 2000)
+    pos_x_ryan_griffin = random.randint(1, 1900)
+    pos_y_ryan_griffin = 0 - random.randint(100, 2000)
+    pos_x_stewie_griffin = random.randint(1, 1900)
+    pos_y_stewie_griffin = 0 - random.randint(100, 2000)
+    moveSprite(chris_griffin, pos_x_chris_griffin, pos_y_chris_griffin)
+    showSprite(chris_griffin)
+    moveSprite(Lois_griffin, pos_x_Lois_griffin, pos_y_Lois_griffin)
+    showSprite(Lois_griffin)
+    moveSprite(meg_griffin, pos_x_meg_griffin, pos_y_meg_griffin)
+    showSprite(meg_griffin)
+    moveSprite(peter_griffin, pos_x_peter_griffin, pos_y_peter_griffin)
+    showSprite(peter_griffin)
+    moveSprite(ryan_griffin, pos_x_ryan_griffin, pos_y_ryan_griffin)
+    showSprite(ryan_griffin)
+    moveSprite(stewie_griffin, pos_x_stewie_griffin, pos_y_stewie_griffin)
+    showSprite(stewie_griffin)
+    count_chris_griffin = 0
     ########family guys########
     while True:
         pos_y_american_dad += 1 * speed_mult

@@ -57,6 +57,51 @@ def gameloop():
     showSprite(steve)
     count_american_dad = 0
     ########american dad#######
+    ########malcom#############
+    dewey = makeSprite("pictures/malcom/dewey.png")
+    francis = makeSprite("pictures/malcom/francis.png")
+    hal = makeSprite("pictures/malcom/hal.png")
+    lois = makeSprite("pictures/malcom/lois.png")
+    malcom = makeSprite("pictures/malcom/malcom.png")
+    rise = makeSprite("pictures/malcom/rise.png")
+    pos_x_dewey = random.randint(1, 1900)
+    pos_y_dewey = 0 - random.randint(100, 2000)
+    pos_x_francis = random.randint(1, 1900)
+    pos_y_francis = 0 - random.randint(100, 2000)
+    pos_x_hal = random.randint(1, 1900)
+    pos_y_hal = 0 - random.randint(100, 2000)
+    pos_x_lois = random.randint(1, 1900)
+    pos_y_lois = 0 - random.randint(100, 2000)
+    pos_x_malcom = random.randint(1, 1900)
+    pos_y_malcom = 0 - random.randint(100, 2000)
+    pos_x_rise = random.randint(1, 1900)
+    pos_y_rise = 0 - random.randint(100, 2000)
+    moveSprite(dewey, pos_x_dewey, pos_y_dewey)
+    showSprite(dewey)
+    moveSprite(francis, pos_x_francis, pos_y_francis)
+    showSprite(francis)
+    moveSprite(hal, pos_x_hal, pos_y_hal)
+    showSprite(hal)
+    moveSprite(lois, pos_x_lois, pos_y_lois)
+    showSprite(lois)
+    moveSprite(malcom, pos_x_malcom, pos_y_malcom)
+    showSprite(malcom)
+    moveSprite(rise, pos_x_rise, pos_y_rise)
+    showSprite(rise)
+    count_dewey = 0
+    ########malcom#############
+    ########soda###############
+
+    ########soda###############
+    ########famille pirate#####
+
+    ########famille pirate#####
+    ########simpsons###########
+
+    ########simpsons###########
+    ########family guys########
+
+    ########family guys########
     while True:
         pos_y_american_dad += 1 * speed_mult
         pos_y_francine += 1 * speed_mult

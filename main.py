@@ -1,5 +1,6 @@
 import pygame, sys
 from pygame_functions import *
+from menu import *
 
 pygame.init()
 
@@ -13,6 +14,7 @@ height = screen.get_height()
 
 def main_menu():
     while True:
+        menu()
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
                 pygame.quit()

@@ -4,6 +4,7 @@ import random
 
 def gameloop():
     life = 3
+    speed_mult = 1
     #########bucket############
     bucket = makeSprite("pictures/empty-bucket.png")
     transformSprite(bucket, 0.5, 0.5)
@@ -16,29 +17,59 @@ def gameloop():
     ##########famille pirate###
     victor = makeSprite("pictures/famille pirate/victor.png")
     pos_x_victor = random.randint(1, 1900)
-    pos_y_victor = 50
-    moveSprite(victor, pos_x_victor, 50)
+    pos_y_victor = 0 - random.randint(100, 2000)
+    moveSprite(victor, pos_x_victor, pos_y_victor)
     showSprite(victor)
     count_famille_pirate = 0
     ########famille pirate#####
     ########american dad#######
-    american_dad = makeSprite("pictures/american dad/francine_smith.png")
+    american_dad = makeSprite("pictures/american dad/Stan_smith.png")
+    francine = makeSprite("pictures/american dad/francine_smith.png")
+    hayley = makeSprite("pictures/american dad/Hayley_smith.png")
+    roger = makeSprite("pictures/american dad/roger_smith.png")
+    steve = makeSprite("pictures/american dad/steve_smith.png")
     pos_x_american_dad = random.randint(1, 1900)
-    pos_y_american_dad = 50
-    moveSprite(american_dad, pos_x_american_dad, 50)
+    pos_y_american_dad = 0 - random.randint(100, 2000)
+    pos_x_francine = random.randint(1, 1900)
+    pos_y_francine = 0 - random.randint(100, 2000)
+    pos_x_hayley = random.randint(1, 1900)
+    pos_y_hayley = 0 - random.randint(100, 2000)
+    pos_x_roger = random.randint(1, 1900)
+    pos_y_roger = 0 - random.randint(100, 2000)
+    pos_x_steve = random.randint(1, 1900)
+    pos_y_steve = 0 - random.randint(100, 2000)
+    moveSprite(american_dad, pos_x_american_dad, pos_y_american_dad)
     showSprite(american_dad)
+    moveSprite(francine, pos_x_francine, pos_y_francine)
+    showSprite(francine)
+    moveSprite(hayley, pos_x_hayley, pos_y_hayley)
+    showSprite(hayley)
+    moveSprite(roger, pos_x_roger, pos_y_roger)
+    showSprite(roger)
+    moveSprite(steve, pos_x_steve, pos_y_steve)
+    showSprite(steve)
     count_american_dad = 0
     ########american dad#######
     while True:
-        pos_y_american_dad += 1
-        pos_y_victor += 1
+        pos_y_american_dad += 1 * speed_mult
+        pos_y_francine += 1 * speed_mult
+        pos_y_hayley += 1 * speed_mult
+        pos_y_roger += 1 * speed_mult
+        pos_y_steve += 1 * speed_mult
         moveSprite(american_dad, pos_x_american_dad, pos_y_american_dad)
+        moveSprite(francine, pos_x_francine, pos_y_francine)
+        moveSprite(hayley, pos_x_hayley, pos_y_hayley)
+        moveSprite(roger, pos_x_roger, pos_y_roger)
+        moveSprite(steve, pos_x_steve, pos_y_steve)
         moveSprite(victor, pos_x_victor, pos_y_victor)
+
+        pos_y_victor += 1 * speed_mult
+        speed_mult += 0.002
         if (is_moving_left == True):
-                    pos_x -= 8
+                    pos_x -= 15
                     moveSprite(bucket, pos_x, 800)
         if (is_moving_right == True):
-                    pos_x += 8
+                    pos_x += 15
                     moveSprite(bucket, pos_x, 800)
         for ev in pygame.event.get():
             if ev.type == pygame.QUIT:
@@ -52,22 +83,64 @@ def gameloop():
                 is_moving_left = False
                 is_moving_right = False
         #############ON CATCH#############
-        if (pos_y_american_dad > 700 and pos_y_victor < 900) and pos_x - pos_x_american_dad < 150 and pos_x - pos_x_american_dad > -150:
+        if (pos_y_american_dad > 700 and pos_y_american_dad < 900 and pos_x - pos_x_american_dad < 150 and pos_x - pos_x_american_dad > -150):
             count_american_dad += 1
             hideSprite(american_dad)
+        if (pos_x_francine - pos_x < 150 and pos_x_francine - pos_x > -150 and pos_y_francine > 700 and pos_y_francine < 900):
+            count_american_dad += 1
+            hideSprite(francine)
+        if ((pos_x_hayley - pos_x < 150 and pos_x_hayley - pos_x > -150 and pos_y_hayley > 700 and pos_y_hayley < 900)):
+            count_american_dad += 1
+            hideSprite(hayley)
+        if ((pos_x_roger - pos_x < 150 and pos_x_roger - pos_x > -150 and pos_y_roger > 700 and pos_y_roger < 900)):
+            count_american_dad += 1
+            hideSprite(roger)
+        if ((pos_x_steve - pos_x < 150 and pos_x_steve - pos_x > -150 and pos_y_steve > 700 and pos_y_steve < 900)):
+            count_american_dad += 1
+            hideSprite(steve)
         if (pos_y_victor > 700 and pos_y_american_dad < 900) and pos_x - pos_x_victor < 150 and pos_x - pos_x_victor > -150:
             count_famille_pirate += 1
             hideSprite(victor)
         #############ON CATCH#############
         #############ON LIFE LOST#############
-        if (pos_y_american_dad < 0 or pos_y_victor < 0):
+        if (pos_y_american_dad > 1000):
             life -= 1
             pos_x_american_dad = random.randint(1, 1900)
-            pos_y_american_dad = 50
-            pos_x_victor = random.randint(1, 1900)
-            pos_y_victor = 50
+            pos_y_american_dad = 0 - random.randint(50, 2000)
+            moveSprite(american_dad, pos_x_american_dad, pos_y_american_dad)
             showSprite(american_dad)
+        if (pos_y_francine > 1000):
+            life -= 1
+            pos_x_francine = random.randint(1, 1900)
+            pos_y_francine = 0 - random.randint(50, 2000)
+            moveSprite(francine, pos_x_francine, pos_y_francine)
+            showSprite(francine)
+        if (pos_y_hayley > 1000):
+            life -= 1
+            pos_x_hayley = random.randint(1, 1900)
+            pos_y_hayley = 0 - random.randint(50, 2000)
+            moveSprite(hayley, pos_x_hayley, pos_y_hayley)
+            showSprite(hayley)
+        if (pos_y_roger > 1000):
+            life -= 1
+            pos_x_roger = random.randint(1, 1900)
+            pos_y_roger = 0 - random.randint(50, 2000)
+            moveSprite(roger, pos_x_roger, pos_y_roger)
+            showSprite(roger)
+        if (pos_y_steve > 1000):
+            life -= 1
+            pos_x_steve = random.randint(1, 1900)
+            pos_y_steve = 0 - random.randint(50, 2000)
+            moveSprite(steve, pos_x_steve, pos_y_steve)
+            showSprite(steve)
+        if (pos_y_victor > 1000):
+            life -= 1
+            pos_x_victor = random.randint(1, 1900)
+            pos_y_victor = 0 - random.randint(50, 2000)
+            moveSprite(victor, pos_x_victor, pos_y_victor)
             showSprite(victor)
+        if (life <= 0):
+            exit()
         updateDisplay()
 
 def menu():

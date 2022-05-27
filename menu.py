@@ -1,3 +1,4 @@
+from itertools import count
 import pygame, sys
 from pygame_functions import *
 import random
@@ -210,11 +211,11 @@ def gameloop():
     while True:
         score = makeLabel(str(scoritos), 40, 1850, 0, (0, 0, 0), "Agency FB", "white")
         showLabel(score)
-        pos_y_american_dad += 1 * speed_mult
-        pos_y_francine += 1 * speed_mult
-        pos_y_hayley += 1 * speed_mult
-        pos_y_roger += 1 * speed_mult
-        pos_y_steve += 1 * speed_mult
+        pos_y_american_dad += 3 * speed_mult
+        pos_y_francine += 3 * speed_mult
+        pos_y_hayley += 3 * speed_mult
+        pos_y_roger += 3 * speed_mult
+        pos_y_steve += 3 * speed_mult
         moveSprite(american_dad, pos_x_american_dad, pos_y_american_dad)
         moveSprite(francine, pos_x_francine, pos_y_francine)
         moveSprite(hayley, pos_x_hayley, pos_y_hayley)
@@ -237,7 +238,7 @@ def gameloop():
             hideSprite(sprite_life1)
             hideSprite(sprite_life2)
             hideSprite(sprite_life3)
-        pos_y_victor += 1 * speed_mult
+        pos_y_victor += 3 * speed_mult
         speed_mult += 0.002
         if (is_moving_left == True):
                     pos_x -= 15
@@ -263,9 +264,12 @@ def gameloop():
                     is_moving_left2 = True
                 if keyPressed("d"):
                     is_moving_right2 = True
-            else:
+                if keyPressed("space"):
+                    life -= 1
+            elif (is_moving_left == True or is_moving_right == True):
                 is_moving_left = False
                 is_moving_right = False
+            elif (is_moving_left2 == True or is_moving_right2 == True):
                 is_moving_left2 = False
                 is_moving_right2 = False
         #############ON CATCH#############
@@ -299,11 +303,166 @@ def gameloop():
             pos_y_steve = 0 - random.randint(50, 2000)
             moveSprite(steve, pos_x_steve, pos_y_steve)
             scoritos += 1
-        if (pos_y_victor > 700 and pos_y_victor < 900 and ((pos_x - pos_x_victor < 150 and pos_x - pos_x_victor > -150) or (pos_x2 - pos_x_victor < 150 and pos_x2 - pos_x_victor > -150))):
+        #############"PIRATE"#############
+        if (pos_y_bigorneau > 700 and pos_y_bigorneau < 900 and ((pos_x - pos_x_bigorneau < 150 and pos_x - pos_x_bigorneau > -150) or (pos_x2 - pos_x_bigorneau < 150 and pos_x2 - pos_x_bigorneau > -150))):
+            count_bigorneau += 1
+            pos_x_bigorneau = random.randint(1, 1900)
+            pos_y_bigorneau = 0 - random.randint(50, 2000)
+            moveSprite(bigorneau, pos_x_bigorneau, pos_y_bigorneau)
+            scoritos += 1
+        if (((pos_x - pos_x_mac < 150 and pos_x - pos_x_mac > -150) or (pos_x2 - pos_x_mac < 150 and pos_x2 - pos_x_mac > -150)) and pos_y_mac > 700 and pos_y_mac < 900):
+            count_american_dad += 1
+            pos_x_mac = random.randint(1, 1900)
+            pos_y_mac = 0 - random.randint(50, 2000)
+            moveSprite(mac, pos_x_mac, pos_y_mac)
+            scoritos += 1
+        if ((((pos_x - pos_x_scampi < 150 and pos_x - pos_x_scampi > -150) or (pos_x2 - pos_x_scampi < 150 and pos_x2 - pos_x_scampi > -150)) and pos_y_scampi > 700 and pos_y_scampi < 900)):
+            count_bigorneau += 1
+            pos_x_scampi = random.randint(1, 1900)
+            pos_y_scampi = 0 - random.randint(50, 2000)
+            moveSprite(scampi, pos_x_scampi, pos_y_scampi)
+            scoritos += 1
+        if ((((pos_x - pos_x_victor < 150 and pos_x - pos_x_victor > -150) or (pos_x2 - pos_x_victor < 150 and pos_x2 - pos_x_victor > -150)) and pos_y_victor > 700 and pos_y_victor < 900)):
             count_bigorneau += 1
             pos_x_victor = random.randint(1, 1900)
             pos_y_victor = 0 - random.randint(50, 2000)
             moveSprite(victor, pos_x_victor, pos_y_victor)
+            scoritos += 1
+        #############"PIRATE"#############
+        if (pos_y_dewey > 700 and pos_y_dewey < 900 and ((pos_x - pos_x_dewey < 150 and pos_x - pos_x_dewey > -150) or (pos_x2 - pos_x_dewey < 150 and pos_x2 - pos_x_dewey > -150))):
+            count_dewey += 1
+            pos_x_dewey = random.randint(1, 1900)
+            pos_y_dewey = 0 - random.randint(50, 2000)
+            moveSprite(dewey, pos_x_dewey, pos_y_dewey)
+            scoritos += 1
+        if (((pos_x - pos_x_francis < 150 and pos_x - pos_x_francis > -150) or (pos_x2 - pos_x_francis < 150 and pos_x2 - pos_x_francis > -150)) and pos_y_francis > 700 and pos_y_francis < 900):
+            count_dewey += 1
+            pos_x_francis = random.randint(1, 1900)
+            pos_y_francis = 0 - random.randint(50, 2000)
+            moveSprite(francis, pos_x_francis, pos_y_francis)
+            scoritos += 1
+        if ((((pos_x - pos_x_hal < 150 and pos_x - pos_x_hal > -150) or (pos_x2 - pos_x_hal < 150 and pos_x2 - pos_x_hal > -150)) and pos_y_hal > 700 and pos_y_hal < 900)):
+            count_dewey += 1
+            pos_x_hal = random.randint(1, 1900)
+            pos_y_hal = 0 - random.randint(50, 2000)
+            moveSprite(hal, pos_x_hal, pos_y_hal)
+            scoritos += 1
+        if ((((pos_x - pos_x_lois < 150 and pos_x - pos_x_lois > -150) or (pos_x2 - pos_x_lois < 150 and pos_x2 - pos_x_lois > -150)) and pos_y_lois > 700 and pos_y_lois < 900)):
+            count_dewey += 1
+            pos_x_lois = random.randint(1, 1900)
+            pos_y_lois = 0 - random.randint(50, 2000)
+            moveSprite(lois, pos_x_lois, pos_y_lois)
+            scoritos += 1
+        if ((((pos_x - pos_x_malcom < 150 and pos_x - pos_x_malcom > -150) or (pos_x2 - pos_x_malcom < 150 and pos_x2 - pos_x_malcom > -150)) and pos_y_malcom > 700 and pos_y_malcom < 900)):
+            count_dewey += 1
+            pos_x_malcom = random.randint(1, 1900)
+            pos_y_malcom = 0 - random.randint(50, 2000)
+            moveSprite(malcom, pos_x_malcom, pos_y_malcom)
+            scoritos += 1
+        if ((((pos_x - pos_x_rise < 150 and pos_x - pos_x_rise > -150) or (pos_x2 - pos_x_rise < 150 and pos_x2 - pos_x_rise > -150)) and pos_y_rise > 700 and pos_y_rise < 900)):
+            count_dewey += 1
+            pos_x_rise = random.randint(1, 1900)
+            pos_y_rise = 0 - random.randint(50, 2000)
+            moveSprite(rise, pos_x_rise, pos_y_rise)
+            scoritos += 1
+        ############################""
+        if (pos_y_bart > 700 and pos_y_bart < 900 and ((pos_x - pos_x_bart < 150 and pos_x - pos_x_bart > -150) or (pos_x2 - pos_x_bart < 150 and pos_x2 - pos_x_bart > -150))):
+            count_bart += 1
+            pos_x_bart = random.randint(1, 1900)
+            pos_y_bart = 0 - random.randint(50, 2000)
+            moveSprite(bart, pos_x_bart, pos_y_bart)
+            scoritos += 1
+        if (((pos_x - pos_x_homer < 150 and pos_x - pos_x_homer > -150) or (pos_x2 - pos_x_homer < 150 and pos_x2 - pos_x_homer > -150)) and pos_y_homer > 700 and pos_y_homer < 900):
+            count_bart += 1
+            pos_x_homer = random.randint(1, 1900)
+            pos_y_homer = 0 - random.randint(50, 2000)
+            moveSprite(homer, pos_x_homer, pos_y_homer)
+            scoritos += 1
+        if ((((pos_x - pos_x_marge < 150 and pos_x - pos_x_marge > -150) or (pos_x2 - pos_x_marge < 150 and pos_x2 - pos_x_marge > -150)) and pos_y_marge > 700 and pos_y_marge < 900)):
+            count_bart += 1
+            pos_x_marge = random.randint(1, 1900)
+            pos_y_marge = 0 - random.randint(50, 2000)
+            moveSprite(marge, pos_x_marge, pos_y_marge)
+            scoritos += 1
+        if ((((pos_x - pos_x_maggie < 150 and pos_x - pos_x_maggie > -150) or (pos_x2 - pos_x_maggie < 150 and pos_x2 - pos_x_maggie > -150)) and pos_y_maggie > 700 and pos_y_maggie < 900)):
+            count_bart += 1
+            pos_x_maggie = random.randint(1, 1900)
+            pos_y_maggie = 0 - random.randint(50, 2000)
+            moveSprite(maggie, pos_x_maggie, pos_y_maggie)
+            scoritos += 1
+        if ((((pos_x - pos_x_lisa < 150 and pos_x - pos_x_lisa > -150) or (pos_x2 - pos_x_lisa < 150 and pos_x2 - pos_x_lisa > -150)) and pos_y_lisa > 700 and pos_y_lisa < 900)):
+            count_bart += 1
+            pos_x_lisa = random.randint(1, 1900)
+            pos_y_lisa = 0 - random.randint(50, 2000)
+            moveSprite(lisa, pos_x_lisa, pos_y_lisa)
+            scoritos += 1
+        ############################""
+        if (pos_y_chris_griffin > 700 and pos_y_chris_griffin < 900 and ((pos_x - pos_x_chris_griffin < 150 and pos_x - pos_x_chris_griffin > -150) or (pos_x2 - pos_x_chris_griffin < 150 and pos_x2 - pos_x_chris_griffin > -150))):
+            count_chris_griffin += 1
+            pos_x_chris_griffin = random.randint(1, 1900)
+            pos_y_chris_griffin = 0 - random.randint(50, 2000)
+            moveSprite(chris_griffin, pos_x_chris_griffin, pos_y_chris_griffin)
+            scoritos += 1
+        if (((pos_x - pos_x_Lois_griffin < 150 and pos_x - pos_x_Lois_griffin > -150) or (pos_x2 - pos_x_Lois_griffin < 150 and pos_x2 - pos_x_Lois_griffin > -150)) and pos_y_Lois_griffin > 700 and pos_y_Lois_griffin < 900):
+            count_chris_griffin += 1
+            pos_x_Lois_griffin = random.randint(1, 1900)
+            pos_y_Lois_griffin = 0 - random.randint(50, 2000)
+            moveSprite(Lois_griffin, pos_x_Lois_griffin, pos_y_Lois_griffin)
+            scoritos += 1
+        if ((((pos_x - pos_x_meg_griffin < 150 and pos_x - pos_x_meg_griffin > -150) or (pos_x2 - pos_x_meg_griffin < 150 and pos_x2 - pos_x_meg_griffin > -150)) and pos_y_meg_griffin > 700 and pos_y_meg_griffin < 900)):
+            count_chris_griffin += 1
+            pos_x_meg_griffin = random.randint(1, 1900)
+            pos_y_meg_griffin = 0 - random.randint(50, 2000)
+            moveSprite(meg_griffin, pos_x_meg_griffin, pos_y_meg_griffin)
+            scoritos += 1
+        if ((((pos_x - pos_x_peter_griffin < 150 and pos_x - pos_x_peter_griffin > -150) or (pos_x2 - pos_x_peter_griffin < 150 and pos_x2 - pos_x_peter_griffin > -150)) and pos_y_peter_griffin > 700 and pos_y_peter_griffin < 900)):
+            count_chris_griffin += 1
+            pos_x_peter_griffin = random.randint(1, 1900)
+            pos_y_peter_griffin = 0 - random.randint(50, 2000)
+            moveSprite(peter_griffin, pos_x_peter_griffin, pos_y_peter_griffin)
+            scoritos += 1
+        if ((((pos_x - pos_x_ryan_griffin < 150 and pos_x - pos_x_ryan_griffin > -150) or (pos_x2 - pos_x_ryan_griffin < 150 and pos_x2 - pos_x_ryan_griffin > -150)) and pos_y_ryan_griffin > 700 and pos_y_ryan_griffin < 900)):
+            count_chris_griffin += 1
+            pos_x_ryan_griffin = random.randint(1, 1900)
+            pos_y_ryan_griffin = 0 - random.randint(50, 2000)
+            moveSprite(ryan_griffin, pos_x_ryan_griffin, pos_y_ryan_griffin)
+            scoritos += 1
+        ##############################
+        if (pos_y_adam > 700 and pos_y_adam < 900 and ((pos_x - pos_x_adam < 150 and pos_x - pos_x_adam > -150) or (pos_x2 - pos_x_adam < 150 and pos_x2 - pos_x_adam > -150))):
+            count_adam += 1
+            pos_x_adam = random.randint(1, 1900)
+            pos_y_adam = 0 - random.randint(50, 2000)
+            moveSprite(adam, pos_x_adam, pos_y_adam)
+            scoritos += 1
+        if (((pos_x - pos_x_babeth < 150 and pos_x - pos_x_babeth > -150) or (pos_x2 - pos_x_babeth < 150 and pos_x2 - pos_x_babeth > -150)) and pos_y_babeth > 700 and pos_y_babeth < 900):
+            count_adam += 1
+            pos_x_babeth = random.randint(1, 1900)
+            pos_y_babeth = 0 - random.randint(50, 2000)
+            moveSprite(babeth, pos_x_babeth, pos_y_babeth)
+            scoritos += 1
+        if ((((pos_x - pos_x_eve < 150 and pos_x - pos_x_eve > -150) or (pos_x2 - pos_x_eve < 150 and pos_x2 - pos_x_eve > -150)) and pos_y_eve > 700 and pos_y_eve < 900)):
+            count_adam += 1
+            pos_x_eve = random.randint(1, 1900)
+            pos_y_eve = 0 - random.randint(50, 2000)
+            moveSprite(eve, pos_x_eve, pos_y_eve)
+            scoritos += 1
+        if ((((pos_x - pos_x_gisele < 150 and pos_x - pos_x_gisele > -150) or (pos_x2 - pos_x_gisele < 150 and pos_x2 - pos_x_gisele > -150)) and pos_y_gisele > 700 and pos_y_gisele < 900)):
+            count_adam += 1
+            pos_x_gisele = random.randint(1, 1900)
+            pos_y_gisele = 0 - random.randint(50, 2000)
+            moveSprite(gisele, pos_x_gisele, pos_y_gisele)
+            scoritos += 1
+        if ((((pos_x - pos_x_michel < 150 and pos_x - pos_x_michel > -150) or (pos_x2 - pos_x_michel < 150 and pos_x2 - pos_x_michel > -150)) and pos_y_michel > 700 and pos_y_michel < 900)):
+            count_adam += 1
+            pos_x_michel = random.randint(1, 1900)
+            pos_y_michel = 0 - random.randint(50, 2000)
+            moveSprite(michel, pos_x_michel, pos_y_michel)
+            scoritos += 1
+        if ((((pos_x - pos_x_slimane < 150 and pos_x - pos_x_slimane > -150) or (pos_x2 - pos_x_slimane < 150 and pos_x2 - pos_x_slimane > -150)) and pos_y_slimane > 700 and pos_y_slimane < 900)):
+            count_adam += 1
+            pos_x_slimane = random.randint(1, 1900)
+            pos_y_slimane = 0 - random.randint(50, 2000)
+            moveSprite(slimane, pos_x_slimane, pos_y_slimane)
             scoritos += 1
         #############ON CATCH#############
         #############ON LIFE LOST#############
@@ -337,12 +496,26 @@ def gameloop():
             pos_y_steve = 0 - random.randint(50, 2000)
             moveSprite(steve, pos_x_steve, pos_y_steve)
             showSprite(steve)
+        #########"pirate"#############
+        if (pos_y_bigorneau > 1000):
+            life -= 1
+            pos_x_bigorneau = random.randint(1, 1900)
+            pos_y_bigorneau = 0 - random.randint(50, 2000)
+            moveSprite(bigorneau, pos_x_bigorneau, pos_y_bigorneau)
+            showSprite(bigorneau)
         if (pos_y_victor > 1000):
             life -= 1
             pos_x_victor = random.randint(1, 1900)
             pos_y_victor = 0 - random.randint(50, 2000)
             moveSprite(victor, pos_x_victor, pos_y_victor)
             showSprite(victor)
+        if (pos_y_mac > 1000):
+            life -= 1
+            pos_x_mac = random.randint(1, 1900)
+            pos_y_mac = 0 - random.randint(50, 2000)
+            moveSprite(mac, pos_x_mac, pos_y_mac)
+            showSprite(mac)
+        #########"pirate"#############
         if (life <= 0):
             exit()
         updateDisplay()
